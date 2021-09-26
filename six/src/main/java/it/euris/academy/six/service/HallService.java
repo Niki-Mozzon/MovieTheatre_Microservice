@@ -6,7 +6,7 @@ import it.euris.academy.six.data.dto.HallDto;
 public interface HallService {
   public HallDto getById(Long id);
 
-  public List<HallDto> getAll(Long id);
+  public List<HallDto> getAll();
 
   public HallDto add(HallDto dto);
 
