@@ -19,36 +19,36 @@ import it.euris.academy.six.service.ActorService;
 public class ActorController {
 
   @Autowired
-  ActorService ActorService;
+  ActorService actorService;
 
   @GetMapping("/v6")
   public List<ActorDto> getAll() {
-      return ActorService.getAll();
+      return actorService.getAll();
   }
 
   @GetMapping("/v6/{id}")
   public ActorDto getById(@PathVariable("id") Long id) {
-      return ActorService.getById(id);
+      return actorService.getById(id);
   }
 
   @DeleteMapping("/v6/{id}")
   public Boolean delete(@PathVariable("id") Long id) {
-      return ActorService.delete(id);
+      return actorService.delete(id);
   }
 
   @PostMapping("/v6")
-  public ActorDto insert(@RequestBody ActorDto ActorDto) {
-      return ActorService.add(ActorDto);
+  public ActorDto insert(@RequestBody ActorDto actorDto) {
+      return actorService.add(actorDto);
   }
 
   @PutMapping("/v6")
-  public ActorDto update(@RequestBody ActorDto ActorDto) {
-      return ActorService.update(ActorDto);
+  public ActorDto update(@RequestBody ActorDto actorDto) {
+      return actorService.update(actorDto);
   }
 
   @PatchMapping("/v6")
-  public ActorDto patch(@RequestBody ActorDto ActorDto) {
-      return ActorService.update(ActorDto);
+  public ActorDto patch(@RequestBody ActorDto actorDto) {
+      return actorService.update(actorDto);
   }
   
 }
