@@ -22,6 +22,7 @@ public class SecurityConfig  extends WebSecurityConfigurerAdapter {
               .antMatchers("/projections/**").hasRole("manager")
               .antMatchers("/users/**").hasRole("manager")
               .antMatchers("/tickets/**").hasRole("manager")
+              .and().httpBasic();
               ;
   }
 
