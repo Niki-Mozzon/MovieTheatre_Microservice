@@ -45,7 +45,7 @@ public class Hall implements Model{
 
   @Override
   public HallDto toDto() {
-    return HallDto.builder().idHall(id.toString()).nameHall(name).capacityHall(capacity.toString()).build();
+    return HallDto.builder().idHall(id==null?null:id.toString()).nameHall(name).capacityHall(capacity.toString()).build();
   }
   
 }

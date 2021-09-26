@@ -1,8 +1,11 @@
 package it.euris.academy.six.data.dto;
 
+import java.time.Instant;
 import java.util.List;
 import it.euris.academy.six.data.archetype.Dto;
-import it.euris.academy.six.data.archetype.Model;
+import it.euris.academy.six.data.model.Hall;
+import it.euris.academy.six.data.model.Movie;
+import it.euris.academy.six.data.model.Projection;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -19,10 +22,12 @@ public class ProjectionDto implements Dto {
   private String movieProjection;
   private String hallProjection;
   private List<TicketDto> ticketsProjection;
+
   @Override
-  public Model toModel() {
-    // TODO Auto-generated method stub
-    return null;
+  public Projection toModel() {
+    return Projection.builder().id(idProjection == null ? null : Long.parseLong(idProjection))
+        .time(Instant.parse(timeProjection)).movie(new Movie(movieProjection))
+        .hall(new Hall(hallProjection)).build();
   }
 
 }

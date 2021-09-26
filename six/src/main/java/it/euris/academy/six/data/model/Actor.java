@@ -2,7 +2,6 @@ package it.euris.academy.six.data.model;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.stream.Collectors;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -45,8 +44,7 @@ public class Actor implements Model {
 
   @Override
   public ActorDto toDto() {
-    return ActorDto.builder().idActor(id == null ? null : id.toString()).nameActor(name)
-        .moviesActor(moviesActor.stream().map(x -> x.toDto()).collect(Collectors.toList())).build();
+    return ActorDto.builder().idActor(id == null ? null : id.toString()).nameActor(name).build();
   }
 
 }

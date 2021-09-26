@@ -2,7 +2,7 @@ package it.euris.academy.six.data.dto;
 
 import java.util.List;
 import it.euris.academy.six.data.archetype.Dto;
-import it.euris.academy.six.data.archetype.Model;
+import it.euris.academy.six.data.model.User;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -18,9 +18,8 @@ public class UserDto implements Dto{
   private String nameUser;
   private List<TicketDto> ticketsUser;
   @Override
-  public Model toModel() {
-    // TODO Auto-generated method stub
-    return null;
+  public User toModel() {
+    return User.builder().id(idUser==null?null:Long.parseLong(idUser)).name(nameUser).build();
   }
 
 }
