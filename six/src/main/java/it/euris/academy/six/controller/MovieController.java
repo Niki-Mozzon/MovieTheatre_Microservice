@@ -17,6 +17,7 @@ import it.euris.academy.six.service.MovieService;
 @RestController
 @RequestMapping("/movies")
 public class MovieController {
+  
   @Autowired
   MovieService movieService;
 
