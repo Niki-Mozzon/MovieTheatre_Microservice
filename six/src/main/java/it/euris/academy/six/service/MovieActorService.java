@@ -13,5 +13,5 @@ public interface MovieActorService {
 
   public MovieActorDto update(MovieActorDto dto);
 
-  public Boolean delete(Long id);
+  public Boolean delete(Long idMovie,Long idActor);
 }
