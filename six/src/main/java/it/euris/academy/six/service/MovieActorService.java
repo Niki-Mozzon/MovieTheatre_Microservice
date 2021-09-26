@@ -7,7 +7,7 @@ public interface MovieActorService {
 
   public MovieActorDto getById(Long id);
 
-  public List<MovieActorDto> getAll(Long id);
+  public List<MovieActorDto> getAll();
 
   public MovieActorDto add(MovieActorDto dto);
 

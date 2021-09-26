@@ -7,7 +7,7 @@ public interface CategoryService {
 
   public CategoryDto getById(Long id);
 
-  public List<CategoryDto> getAll(Long id);
+  public List<CategoryDto> getAll();
 
   public CategoryDto add(CategoryDto dto);
 
