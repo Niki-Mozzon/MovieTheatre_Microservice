@@ -5,6 +5,7 @@ import java.util.stream.Collectors;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import it.euris.academy.six.data.dto.ActorDto;
+import it.euris.academy.six.data.model.Actor;
 import it.euris.academy.six.repository.ActorRepository;
 import it.euris.academy.six.service.ActorService;
 
@@ -16,7 +17,7 @@ public class ActorServiceImpl implements ActorService{
   
   @Override
   public ActorDto getById(Long id) {
-    return null;
+    return actorRepository.findById(id).orElse(new Actor()).toDto();
   }
 
   @Override
@@ -26,6 +27,8 @@ public class ActorServiceImpl implements ActorService{
 
   @Override
   public ActorDto add(ActorDto dto) {
+    if (dto.getIdActor()!=null) {
+    }
     return null;
   }
 
