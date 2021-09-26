@@ -5,7 +5,7 @@ import it.euris.academy.six.data.dto.MovieActorDto;
 
 public interface MovieActorService {
 
-  public MovieActorDto getById(Long id);
+  public MovieActorDto getById(Long movieId,Long actorId);
 
   public List<MovieActorDto> getAll();
 

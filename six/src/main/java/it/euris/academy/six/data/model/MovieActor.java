@@ -19,7 +19,7 @@ import lombok.NoArgsConstructor;
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
-@Table(name = "movie-actor")
+@Table(name = "movie_actor")
 @Entity
 public class MovieActor implements Model {
 

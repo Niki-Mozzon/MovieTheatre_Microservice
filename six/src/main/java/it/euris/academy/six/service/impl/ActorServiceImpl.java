@@ -6,6 +6,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import it.euris.academy.six.data.dto.ActorDto;
 import it.euris.academy.six.data.model.Actor;
+import it.euris.academy.six.exception.IdMustBeNullException;
+import it.euris.academy.six.exception.IdMustNotBeNullException;
 import it.euris.academy.six.repository.ActorRepository;
 import it.euris.academy.six.service.ActorService;
 
@@ -28,18 +30,25 @@ public class ActorServiceImpl implements ActorService{
   @Override
   public ActorDto add(ActorDto dto) {
     if (dto.getIdActor()!=null) {
+      throw new IdMustBeNullException();
     }
-    return null;
+    Actor modelActor = dto.toModel();
+    Actor saveActor = actorRepository.save(modelActor);
+    return saveActor.toDto();
   }
 
   @Override
   public ActorDto update(ActorDto dto) {
-    return null;
+    if (dto.getIdActor()==null) {
+      throw new IdMustNotBeNullException();
+    }
+    return actorRepository.save(dto.toModel()).toDto();
   }
 
   @Override
   public Boolean delete(Long id) {
-    return null;
+    actorRepository.deleteById(id);
+    return actorRepository.findById(id).isEmpty();
   }
 
 }
