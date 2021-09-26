@@ -8,8 +8,8 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
-import it.euris.academy.six.data.archetype.Dto;
 import it.euris.academy.six.data.archetype.Model;
+import it.euris.academy.six.data.dto.TicketDto;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -27,24 +27,25 @@ public class Ticket implements Model {
   @GeneratedValue(strategy = GenerationType.IDENTITY)
   @Column(name = "id_ticket")
   private Long id;
-  
+
   @Column(name = "seat_ticket")
   private String seat;
-  
+
   @ManyToOne
   @JoinColumn(name = "projection_id", nullable = false)
   private Projection projection;
 
   @ManyToOne
   @JoinColumn(name = "user_id", nullable = false)
-  private Movie user;
+  private User user;
 
   @Override
-  public Dto toDto() {
-    // TODO Auto-generated method stub
-    return null;
+  public TicketDto toDto() {
+    return TicketDto.builder().idTicket(id == null ? null : id.toString()).seatTicket(seat)
+        .projectionTicket(projection.getId().toString()).userTicket(user.getId().toString())
+        .build();
   }
-  
 
-  
+
+
 }

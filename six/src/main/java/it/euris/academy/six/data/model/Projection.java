@@ -11,8 +11,8 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
-import it.euris.academy.six.data.archetype.Dto;
 import it.euris.academy.six.data.archetype.Model;
+import it.euris.academy.six.data.dto.ProjectionDto;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -30,34 +30,35 @@ public class Projection implements Model {
   @GeneratedValue(strategy = GenerationType.IDENTITY)
   @Column(name = "id_projection")
   private Long id;
-  
+
   @Column(name = "time_projection")
   private Instant time;
-  
+
   @ManyToOne
   @JoinColumn(name = "movie_id", nullable = false)
   private Movie movie;
-  
+
   @ManyToOne
   @JoinColumn(name = "hall_id", nullable = false)
   private Hall hall;
-  
-  
-  @OneToMany(mappedBy = "projection")//FetchType.Eager?
+
+
+  @OneToMany(mappedBy = "projection") // FetchType.Eager?
   private List<Ticket> tickets;
 
   public Projection(String projectionId) {
-      if (projectionId != null) {
-          this.id = Long.parseLong(projectionId);
-      }
+    if (projectionId != null) {
+      this.id = Long.parseLong(projectionId);
+    }
   }
 
   @Override
-  public Dto toDto() {
-    // TODO Auto-generated method stub
-    return null;
+  public ProjectionDto toDto() {
+    return ProjectionDto.builder().idProjection(id == null ? null : id.toString())
+        .movieProjection(movie.getId().toString()).timeProjection(time.toString())
+        .hallProjection(hall.getId().toString()).build();
   }
 
 
-  
+
 }
