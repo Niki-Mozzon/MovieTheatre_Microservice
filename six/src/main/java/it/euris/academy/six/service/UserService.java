@@ -7,7 +7,7 @@ public interface UserService {
 
   public UserDto getById(Long id);
 
-  public List<UserDto> getAll(Long id);
+  public List<UserDto> getAll();
 
   public UserDto add(UserDto dto);
 

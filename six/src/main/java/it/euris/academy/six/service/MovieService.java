@@ -7,7 +7,7 @@ public interface MovieService {
 
   public MovieDto getById(Long id);
 
-  public List<MovieDto> getAll(Long id);
+  public List<MovieDto> getAll();
 
   public MovieDto add(MovieDto dto);
 

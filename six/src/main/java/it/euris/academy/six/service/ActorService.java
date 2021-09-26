@@ -7,7 +7,7 @@ public interface ActorService {
 
   public ActorDto getById(Long id);
 
-  public List<ActorDto> getAll(Long id);
+  public List<ActorDto> getAll();
 
   public ActorDto add(ActorDto dto);
 

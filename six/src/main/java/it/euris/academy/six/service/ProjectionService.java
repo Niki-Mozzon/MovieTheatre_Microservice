@@ -7,7 +7,7 @@ public interface ProjectionService {
 
   public ProjectionDto getById(Long id);
 
-  public List<ProjectionDto> getAll(Long id);
+  public List<ProjectionDto> getAll();
 
   public ProjectionDto add(ProjectionDto dto);
 

@@ -7,7 +7,7 @@ public interface TicketService {
 
   public TicketDto getById(Long id);
 
-  public List<TicketDto> getAll(Long id);
+  public List<TicketDto> getAll();
 
   public TicketDto add(TicketDto dto);
 
