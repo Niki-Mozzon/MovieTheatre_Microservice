@@ -1,6 +1,7 @@
 package it.euris.academy.six.data.dto;
 
 import java.util.List;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import it.euris.academy.six.data.archetype.Dto;
 import it.euris.academy.six.data.model.User;
 import lombok.AllArgsConstructor;
@@ -16,6 +17,7 @@ public class UserDto implements Dto{
 
   private String idUser;
   private String nameUser;
+  @JsonIgnore
   private List<TicketDto> ticketsUser;
   @Override
   public User toModel() {

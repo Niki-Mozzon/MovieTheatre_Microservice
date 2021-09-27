@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
+import java.util.stream.Collectors;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -38,7 +39,8 @@ public class Movie implements Model {
   private String name;
 
   @OneToMany(mappedBy = "movie") // fetch = FetchType.EAGER?
-  private List<Projection> projections;
+  @Builder.Default
+  private List<Projection> projections = new ArrayList<Projection>();
 
   @OneToMany(mappedBy = "movie")
   @Builder.Default
@@ -63,7 +65,10 @@ public class Movie implements Model {
 
   @Override
   public MovieDto toDto() {
-    return MovieDto.builder().idMovie(id==null?null:id.toString()).nameMovie(name).build();
+    return MovieDto.builder().idMovie(id==null?null:id.toString())
+        .nameMovie(name).categoriesMovie(categoryMovie.stream().map(x -> x.toDto()).collect(Collectors.toList()))
+        .projectionsMovie(projections.stream().map(x -> x.toDto()).collect(Collectors.toList()))  
+        .build();
   }
 
 }

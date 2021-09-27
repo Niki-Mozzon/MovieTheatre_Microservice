@@ -21,8 +21,7 @@ public class ProjectionDto implements Dto {
   private String idProjection;
   private String timeProjection;
   private String movieProjection;
-  private String hallProjection;
-  @JsonIgnore
+  private String hallProjection;  
   private List<TicketDto> ticketsProjection;
 
   @Override
