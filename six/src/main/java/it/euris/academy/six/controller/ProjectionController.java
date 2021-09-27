@@ -45,8 +45,4 @@ public class ProjectionController {
       return projectionService.update(dto);
   }
 
-  @PatchMapping("/v6")
-  public ProjectionDto patch(@RequestBody ProjectionDto dto) {
-      return projectionService.update(dto);
-  }
 }

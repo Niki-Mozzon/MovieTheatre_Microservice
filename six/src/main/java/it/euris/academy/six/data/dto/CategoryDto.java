@@ -1,6 +1,7 @@
 package it.euris.academy.six.data.dto;
 
 import java.util.List;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import it.euris.academy.six.data.archetype.Dto;
 import it.euris.academy.six.data.model.Category;
 import lombok.AllArgsConstructor;
@@ -16,6 +17,7 @@ public class CategoryDto implements Dto {
 
   private String idCategory;
   private String nameCategory;
+  @JsonIgnore
   private List<MovieDto> moviesCategory;
   
   

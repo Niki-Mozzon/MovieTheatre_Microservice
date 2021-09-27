@@ -17,6 +17,7 @@ import it.euris.academy.six.service.MovieService;
 @RestController
 @RequestMapping("/movies")
 public class MovieController {
+  
   @Autowired
   MovieService movieService;
 
@@ -45,8 +46,4 @@ public class MovieController {
       return movieService.update(dto);
   }
 
-  @PatchMapping("/v6")
-  public MovieDto patch(@RequestBody MovieDto dto) {
-      return movieService.update(dto);
-  }
 }

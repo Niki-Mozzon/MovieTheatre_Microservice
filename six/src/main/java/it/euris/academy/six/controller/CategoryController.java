@@ -45,9 +45,4 @@ public class CategoryController {
       return categoryService.update(CategoryDto);
   }
 
-  @PatchMapping("/v6")
-  public CategoryDto patch(@RequestBody CategoryDto CategoryDto) {
-      return categoryService.update(CategoryDto);
-  }
-  
 }

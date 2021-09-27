@@ -3,6 +3,7 @@ package it.euris.academy.six.service.impl;
 import java.util.List;
 import java.util.stream.Collectors;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 import it.euris.academy.six.data.dto.MovieDto;
 import it.euris.academy.six.data.model.Movie;
 import it.euris.academy.six.exception.IdMustBeNullException;
@@ -10,6 +11,7 @@ import it.euris.academy.six.exception.IdMustNotBeNullException;
 import it.euris.academy.six.repository.MovieRepository;
 import it.euris.academy.six.service.MovieService;
 
+@Service
 public class MovieServiceImpl implements MovieService{
   
   @Autowired

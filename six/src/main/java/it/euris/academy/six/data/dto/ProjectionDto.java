@@ -2,6 +2,7 @@ package it.euris.academy.six.data.dto;
 
 import java.time.Instant;
 import java.util.List;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import it.euris.academy.six.data.archetype.Dto;
 import it.euris.academy.six.data.model.Hall;
 import it.euris.academy.six.data.model.Movie;
@@ -20,7 +21,7 @@ public class ProjectionDto implements Dto {
   private String idProjection;
   private String timeProjection;
   private String movieProjection;
-  private String hallProjection;
+  private String hallProjection;  
   private List<TicketDto> ticketsProjection;
 
   @Override

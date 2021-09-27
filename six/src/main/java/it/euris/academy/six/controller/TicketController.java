@@ -45,8 +45,4 @@ public class TicketController {
       return ticketService.update(dto);
   }
 
-  @PatchMapping("/v6")
-  public TicketDto patch(@RequestBody TicketDto dto) {
-      return ticketService.update(dto);
-  }
 }

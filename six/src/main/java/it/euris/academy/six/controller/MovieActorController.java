@@ -25,14 +25,14 @@ public class MovieActorController {
       return movieActorService.getAll();
   }
 
-  @GetMapping("/v6/{id}")
-  public MovieActorDto getById(@PathVariable("id") Long id) {
-      return movieActorService.getById(id);
+  @GetMapping("/v6/{idMovie}/{idActor}")
+  public MovieActorDto getById(@PathVariable("idMovie") Long idMovie,@PathVariable("idActor") Long idActor) {
+      return movieActorService.getById(idMovie,idActor);
   }
 
-  @DeleteMapping("/v6/{id}")
-  public Boolean delete(@PathVariable("id") Long id) {
-      return movieActorService.delete(id);
+  @DeleteMapping("/v6/{idMovie}/{idActor}")
+  public Boolean delete(@PathVariable("idMovie") Long idMovie,@PathVariable("idActor") Long idActor) {
+      return movieActorService.delete(idMovie,idActor);
   }
 
   @PostMapping("/v6")
@@ -45,8 +45,4 @@ public class MovieActorController {
       return movieActorService.update(dto);
   }
 
-  @PatchMapping("/v6")
-  public MovieActorDto patch(@RequestBody MovieActorDto dto) {
-      return movieActorService.update(dto);
-  }
 }

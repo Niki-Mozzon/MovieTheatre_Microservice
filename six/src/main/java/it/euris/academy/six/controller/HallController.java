@@ -44,10 +44,5 @@ public class HallController {
   public HallDto update(@RequestBody HallDto dto) {
       return hallService.update(dto);
   }
-
-  @PatchMapping("/v6")
-  public HallDto patch(@RequestBody HallDto dto) {
-      return hallService.update(dto);
-  }
   
 }
