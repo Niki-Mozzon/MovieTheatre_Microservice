@@ -45,8 +45,4 @@ public class MovieActorController {
       return movieActorService.update(dto);
   }
 
-  @PatchMapping("/v6")
-  public MovieActorDto patch(@RequestBody MovieActorDto dto) {
-      return movieActorService.update(dto);
-  }
 }

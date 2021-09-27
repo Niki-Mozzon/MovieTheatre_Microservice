@@ -45,8 +45,4 @@ public class UserController {
       return userService.update(dto);
   }
 
-  @PatchMapping("/v6")
-  public UserDto patch(@RequestBody UserDto dto) {
-      return userService.update(dto);
-  }
 }

@@ -45,10 +45,5 @@ public class ActorController {
   public ActorDto update(@RequestBody ActorDto actorDto) {
       return actorService.update(actorDto);
   }
-
-  @PatchMapping("/v6")
-  public ActorDto patch(@RequestBody ActorDto actorDto) {
-      return actorService.update(actorDto);
-  }
   
 }
