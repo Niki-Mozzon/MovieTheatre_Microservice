@@ -39,11 +39,7 @@ public class Hall implements Model{
   
   @Column(name = "capacity_hall")
   private Integer capacity;
-  
-  @Column(name = "empty_hall")
-  @Builder.Default
-  private Boolean emptyHall = false;
-  
+    
   @Column(name = "entrance")
   @Builder.Default
   private Boolean entrance = true;
@@ -52,7 +48,7 @@ public class Hall implements Model{
   private Instant starting;
   
   @Column(name = "profit_hall")
-  private Long profit;
+  private Double profit;
   
   @ManyToOne
   @JoinColumn(name = "cinema_id", nullable = false)
@@ -77,6 +73,8 @@ public class Hall implements Model{
         .idHall(UT.numberToString(id))        
         .nameHall(name)
         .capacityHall(UT.numberToString(capacity))
+        .starting(starting.toString())
+        .cinemaId(cinemaId.getId().toString())
         .build();
   
 }

@@ -16,4 +16,6 @@ public interface CinemaService {
 
   public Boolean delete(Long id);
   
+  public CinemaDto getProfit(CinemaDto dto);
+  
 }

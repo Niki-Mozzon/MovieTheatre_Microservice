@@ -23,8 +23,7 @@ public class UserDto implements Dto{
   private String name;
   private String surname;
   private String birthdate;
-  
-  @JsonIgnore
+   
   private Ticket tickets;
   @Override
   public User toModel() {

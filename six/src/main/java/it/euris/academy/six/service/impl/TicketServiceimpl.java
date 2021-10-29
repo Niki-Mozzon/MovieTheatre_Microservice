@@ -34,7 +34,7 @@ public class TicketServiceimpl implements TicketService {
   public TicketDto add(TicketDto ticketDto) {
     if (ticketDto.getIdTicket() != null) {
       throw new IdMustBeNullException();
-    }
+    }    
     return ticketRepository.save(ticketDto.toModel()).toDto();
   }
 

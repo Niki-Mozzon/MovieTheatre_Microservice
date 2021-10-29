@@ -49,5 +49,17 @@ public class CinemaServiceImpl implements CinemaService {
     return cinemaRepository.findById(id).isEmpty();
   }
 
+  @Override
+  public CinemaDto getProfit(CinemaDto dto) {
+    Cinema cinema = dto.toModel();
+    List<Hall> halls = cinema.getHall();    
+    double profit = cinema.getProfit();
+    for (int i = 0; i<halls.size(); i++) {
+      profit = profit + halls.get(i).getProfit();
+    }
+    cinema.setProfit(profit);
+    return cinemaRepository.save(cinema).toDto();
+  }
+
 
 }

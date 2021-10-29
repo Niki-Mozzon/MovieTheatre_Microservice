@@ -46,8 +46,7 @@ public class Cinema implements Model {
         .id(UT.numberToString(id))
         .name(name)
         .profit(UT.numberToString(profit))
-        .build();
-           
+        .build();           
   }
 
 }

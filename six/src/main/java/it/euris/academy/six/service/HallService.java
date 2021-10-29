@@ -14,5 +14,13 @@ public interface HallService {
 
   public Boolean delete(Long id);
   
-  public Integer getNumberTickets (Long id);
+  //Other Methods
+  
+  public Boolean isHallFull (Long id);
+  
+  public HallDto getHallProfit(Long id);
+  
+  public HallDto createTicket(Long id);
+ 
+  
 }

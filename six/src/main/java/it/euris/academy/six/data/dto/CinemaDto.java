@@ -11,6 +11,7 @@ import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import net.bytebuddy.dynamic.scaffold.MethodRegistry.Handler.ForImplementation;
 
 @Builder
 @NoArgsConstructor
@@ -34,8 +35,7 @@ public class CinemaDto implements Dto {
         .profit(UT.toDouble(profit))
         .build();
 
-    return cinema;
-    
+    return cinema;  
+    }  
 
-}
 }

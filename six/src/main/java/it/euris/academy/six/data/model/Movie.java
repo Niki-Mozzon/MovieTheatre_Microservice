@@ -81,6 +81,8 @@ public class Movie implements Model {
         .directorMovie(director)
         .producerMovie(producer)
         .categoryMovie(UT.getMovieCategory(category))
+        .length(length.toString())
+        .minimunAge(UT.numberToString(minimumAge))
         .price(UT.numberToString(price))
         .build();
   }
