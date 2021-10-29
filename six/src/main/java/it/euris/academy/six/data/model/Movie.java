@@ -42,18 +42,6 @@ public class Movie implements Model {
   @Builder.Default
   private List<Projection> projections = new ArrayList<Projection>();
 
-  @OneToMany(mappedBy = "movie")
-  @Builder.Default
-  private Set<MovieActor> movieActors = new HashSet<MovieActor>();
-
-  @ManyToMany
-  @JoinTable(name = "category_movie", joinColumns = @JoinColumn(name = "movie_id"),
-      inverseJoinColumns = @JoinColumn(name = "category_id"))
-  @Builder.Default
-  List<Category> categoryMovie = new ArrayList<Category>();
-
-
-
   public Movie(String movieId) {
     if (movieId != null) {
       this.id = Long.parseLong(movieId);
@@ -66,7 +54,7 @@ public class Movie implements Model {
   @Override
   public MovieDto toDto() {
     return MovieDto.builder().idMovie(id==null?null:id.toString())
-        .nameMovie(name).categoriesMovie(categoryMovie.stream().map(x -> x.toDto()).collect(Collectors.toList()))
+        .nameMovie(name)
         .projectionsMovie(projections.stream().map(x -> x.toDto()).collect(Collectors.toList()))  
         .build();
   }
