@@ -1,11 +1,14 @@
 package it.euris.academy.cinema.data.model;
 
+import java.util.ArrayList;
 import java.util.List;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 import it.euris.academy.cinema.data.archetype.Model;
@@ -34,8 +37,13 @@ public class Hall implements Model{
   @Column(name = "capacity_hall")
   private Integer capacity;
   
-  @OneToMany(mappedBy = "hall")//fetch = FetchType.EAGER?
-  private List<Projection> projections ;
+  @OneToMany(mappedBy = "hall")
+  @Builder.Default
+  private List<Projection> projections = new ArrayList<Projection>() ;
+  
+  @ManyToOne
+  @JoinColumn(name = "cinema_id", nullable = false)
+  private Cinema cinema;
 
   public Hall(String hallId) {
       if (hallId != null) {

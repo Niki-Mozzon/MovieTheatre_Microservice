@@ -20,6 +20,7 @@ public class ProjectionDto implements Dto {
 
   private String idProjection;
   private String timeProjection;
+  private String moneyEarnedProjection;
   private String movieProjection;
   private String hallProjection;  
   private List<TicketDto> ticketsProjection;
@@ -27,6 +28,7 @@ public class ProjectionDto implements Dto {
   @Override
   public Projection toModel() {
     return Projection.builder().id(idProjection == null ? null : Long.parseLong(idProjection))
+        .moneyEarned(moneyEarnedProjection== null ? null :Double.parseDouble(moneyEarnedProjection))
         .time(Instant.parse(timeProjection)).movie(new Movie(movieProjection))
         .hall(new Hall(hallProjection)).build();
   }

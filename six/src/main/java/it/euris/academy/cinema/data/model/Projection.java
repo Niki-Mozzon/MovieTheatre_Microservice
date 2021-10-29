@@ -33,6 +33,9 @@ public class Projection implements Model {
 
   @Column(name = "time_projection")
   private Instant time;
+  
+  @Column(name = "money_earned_projection")
+  private Double moneyEarned;
 
   @ManyToOne
   @JoinColumn(name = "movie_id", nullable = false)
@@ -55,6 +58,7 @@ public class Projection implements Model {
   @Override
   public ProjectionDto toDto() {
     return ProjectionDto.builder().idProjection(id == null ? null : id.toString())
+        .moneyEarnedProjection(moneyEarned == null ? null : moneyEarned.toString())
         .movieProjection(movie.getId().toString()).timeProjection(time.toString())
         .hallProjection(hall.getId().toString()).build();
   }
