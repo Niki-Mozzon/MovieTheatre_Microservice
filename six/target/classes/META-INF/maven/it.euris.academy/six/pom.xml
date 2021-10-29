@@ -12,7 +12,7 @@
 	<artifactId>six</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
 	<name>six</name>
-	<description>Movie theatre exercise</description>
+	<description>Progetto Cinema</description>
 	<properties>
 		<java.version>11</java.version>
 	</properties>
