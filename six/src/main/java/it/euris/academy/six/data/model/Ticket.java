@@ -7,6 +7,7 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
+import javax.persistence.OneToOne;
 import javax.persistence.Table;
 import it.euris.academy.six.data.archetype.Model;
 import it.euris.academy.six.data.dto.TicketDto;
@@ -30,20 +31,17 @@ public class Ticket implements Model {
 
   @Column(name = "seat_ticket")
   private String seat;
+  
+  @Column(name = "price")
+  private Double price;
 
-  @ManyToOne
-  @JoinColumn(name = "projection_id", nullable = false)
-  private Projection projection;
-
-  @ManyToOne
+  @OneToOne
   @JoinColumn(name = "user_id", nullable = false)
   private User user;
 
   @Override
   public TicketDto toDto() {
-    return TicketDto.builder().idTicket(id == null ? null : id.toString()).seatTicket(seat)
-        .projectionTicket(projection.getId().toString()).userTicket(user.getId().toString())
-        .build();
+    return null;
   }
 
 

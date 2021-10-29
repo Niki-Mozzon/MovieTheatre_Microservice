@@ -1,12 +1,16 @@
 package it.euris.academy.six.data.model;
 
+import java.time.Instant;
 import java.util.List;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
+import javax.persistence.OneToOne;
 import javax.persistence.Table;
 import it.euris.academy.six.data.archetype.Model;
 import it.euris.academy.six.data.dto.UserDto;
@@ -30,9 +34,19 @@ public class User implements Model {
 
   @Column(name = "name_user")
   private String name;
+  
+  @Column(name = "surname_user")
+  private String surname;
+  
+  @Column(name = "birthdate_user")
+  private Instant birthdate;
 
-  @OneToMany(mappedBy = "user") // FetchType.Eager?
-  private List<Ticket> tickets;
+  @OneToOne(mappedBy = "user") // FetchType.Eager?
+  private Ticket ticket;
+  
+  @ManyToOne
+  @JoinColumn(name = "hall_id")
+  private Hall hallId;
 
   public User(String userId) {
     if (userId != null) {

@@ -1,5 +1,6 @@
 package it.euris.academy.six.data.model;
 
+import java.sql.Time;
 import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.List;
@@ -25,7 +26,6 @@ import lombok.NoArgsConstructor;
 @Entity
 @NoArgsConstructor
 @AllArgsConstructor
-@Builder
 @Data
 @Table(name = "movie")
 public class Movie implements Model {
@@ -37,22 +37,21 @@ public class Movie implements Model {
 
   @Column(name = "name_movie")
   private String name;
-
-  @OneToMany(mappedBy = "movie") // fetch = FetchType.EAGER?
-  @Builder.Default
-  private List<Projection> projections = new ArrayList<Projection>();
-
-  @OneToMany(mappedBy = "movie")
-  @Builder.Default
-  private Set<MovieActor> movieActors = new HashSet<MovieActor>();
-
-  @ManyToMany
-  @JoinTable(name = "category_movie", joinColumns = @JoinColumn(name = "movie_id"),
-      inverseJoinColumns = @JoinColumn(name = "category_id"))
-  @Builder.Default
-  List<Category> categoryMovie = new ArrayList<Category>();
-
-
+  
+  @Column(name = "director_movie")
+  private String director;
+  
+  @Column(name = "producer_movie")
+  private String producer;
+  
+  @Column(name = "category_movie")
+  private String category;
+  
+  @Column(name = "Length_movie")
+  private Time length;
+  
+  @Column(name = "Minimum_age_movie")
+  private Integer minimumAge;   
 
   public Movie(String movieId) {
     if (movieId != null) {
@@ -65,10 +64,7 @@ public class Movie implements Model {
 
   @Override
   public MovieDto toDto() {
-    return MovieDto.builder().idMovie(id==null?null:id.toString())
-        .nameMovie(name).categoriesMovie(categoryMovie.stream().map(x -> x.toDto()).collect(Collectors.toList()))
-        .projectionsMovie(projections.stream().map(x -> x.toDto()).collect(Collectors.toList()))  
-        .build();
+    return null;
   }
 
 }

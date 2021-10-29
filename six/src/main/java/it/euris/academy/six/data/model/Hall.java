@@ -1,12 +1,15 @@
 package it.euris.academy.six.data.model;
 
-import java.util.List;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
+import javax.persistence.OneToOne;
 import javax.persistence.Table;
 import it.euris.academy.six.data.archetype.Model;
 import it.euris.academy.six.data.dto.HallDto;
@@ -34,8 +37,29 @@ public class Hall implements Model{
   @Column(name = "capacity_hall")
   private Integer capacity;
   
-  @OneToMany(mappedBy = "hall")//fetch = FetchType.EAGER?
-  private List<Projection> projections ;
+  @Column(name = "empty_hall")
+  @Builder.Default
+  private Boolean emptyHall = false;
+  
+  @Column(name = "entrance")
+  @Builder.Default
+  private Boolean entrance = true;
+  
+  @Column(name = "profit_hall")
+  private Long profit;
+  
+  @ManyToOne
+  @JoinColumn(name = "cinema_id", nullable = false)
+  private Cinema cinemaId;
+  
+  @OneToOne
+  @JoinColumn(name = "movie_id")
+  private Movie movieId;
+  
+  @OneToMany
+  @JoinColumn(name = "user_id")
+  private User userId;
+  
 
   public Hall(String hallId) {
       if (hallId != null) {
@@ -45,7 +69,7 @@ public class Hall implements Model{
 
   @Override
   public HallDto toDto() {
-    return HallDto.builder().idHall(id==null?null:id.toString()).nameHall(name).capacityHall(capacity.toString()).build();
+    return null;
   }
   
 }

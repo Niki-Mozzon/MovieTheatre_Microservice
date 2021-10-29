@@ -17,10 +17,8 @@ public class HallDto implements Dto {
   private String idHall;
   private String nameHall;
   private String capacityHall;
-  private List<ProjectionDto> projectionsHall;
   @Override
   public Hall toModel() {
-    return Hall.builder().id(idHall==null?null:Long.parseLong(idHall)).name(nameHall).capacity(Integer.parseInt(capacityHall)).build();
+    return null;
   }
-
 }
