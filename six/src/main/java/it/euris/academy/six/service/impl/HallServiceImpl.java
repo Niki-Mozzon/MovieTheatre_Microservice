@@ -51,4 +51,12 @@ public class HallServiceImpl implements HallService{
     return hallRepository.findById(id).isEmpty();
   }
 
+  @Override
+  public Integer getNumberTickets(Long id) {
+    // TODO Auto-generated method stub
+    return null;
+  }
+  
+  
+
 }

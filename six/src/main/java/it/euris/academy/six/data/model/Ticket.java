@@ -9,6 +9,7 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
+import Utils.UT;
 import it.euris.academy.six.data.archetype.Model;
 import it.euris.academy.six.data.dto.TicketDto;
 import lombok.AllArgsConstructor;
@@ -41,7 +42,9 @@ public class Ticket implements Model {
 
   @Override
   public TicketDto toDto() {
-    return null;
+    return TicketDto.builder().idTicket(UT.numberToString(id))
+        .seatTicket(seat)
+        .price(UT.numberToString(id)).build();
   }
 
 

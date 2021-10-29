@@ -1,6 +1,8 @@
 package it.euris.academy.six.data.model;
 
 
+import java.time.Instant;
+import java.util.List;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -11,6 +13,7 @@ import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
+import Utils.UT;
 import it.euris.academy.six.data.archetype.Model;
 import it.euris.academy.six.data.dto.HallDto;
 import lombok.AllArgsConstructor;
@@ -45,6 +48,9 @@ public class Hall implements Model{
   @Builder.Default
   private Boolean entrance = true;
   
+  @Column(name = "starting_date")
+  private Instant starting;
+  
   @Column(name = "profit_hall")
   private Long profit;
   
@@ -56,20 +62,22 @@ public class Hall implements Model{
   @JoinColumn(name = "movie_id")
   private Movie movieId;
   
-  @OneToMany
-  @JoinColumn(name = "user_id")
-  private User userId;
+  @OneToMany(mappedBy = "hallId") 
+  private List<User> users;
   
-
   public Hall(String hallId) {
       if (hallId != null) {
           this.id = Long.parseLong(hallId);
       }
   }
-
+  
   @Override
   public HallDto toDto() {
-    return null;
-  }
+    return HallDto.builder()
+        .idHall(UT.numberToString(id))        
+        .nameHall(name)
+        .capacityHall(UT.numberToString(capacity))
+        .build();
   
 }
+}  

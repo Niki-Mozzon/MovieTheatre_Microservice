@@ -12,6 +12,7 @@ import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
+import Utils.UT;
 import it.euris.academy.six.data.archetype.Model;
 import it.euris.academy.six.data.dto.UserDto;
 import lombok.AllArgsConstructor;
@@ -45,7 +46,7 @@ public class User implements Model {
   private Ticket ticket;
   
   @ManyToOne
-  @JoinColumn(name = "hall_id")
+  @JoinColumn(name = "hall_id", nullable = false)
   private Hall hallId;
 
   public User(String userId) {
@@ -56,7 +57,12 @@ public class User implements Model {
 
   @Override
   public UserDto toDto() {
-    return UserDto.builder().idUser(id == null ? null : id.toString()).nameUser(name).build();
+    return UserDto.builder()
+        .idUser(id == null ? null : id.toString())
+        .name(name)
+        .surname(surname)
+        .birthdate(birthdate.toString())
+        .build();
   }
 
 

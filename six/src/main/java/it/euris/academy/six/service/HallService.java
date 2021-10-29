@@ -13,4 +13,6 @@ public interface HallService {
   public HallDto update(HallDto dto);
 
   public Boolean delete(Long id);
+  
+  public Integer getNumberTickets (Long id);
 }

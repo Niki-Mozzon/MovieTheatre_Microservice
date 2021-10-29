@@ -1,6 +1,7 @@
 package Utils;
 
 import java.time.Instant;
+import it.euris.academy.six.data.enums.MovieCategory;
 
 public class UT {
   
@@ -27,5 +28,22 @@ public class UT {
   public static Integer toInteger(String value) {
     return value == null ? null : Integer.parseInt(value);
   }
+  
+  public static String getMovieCategory(MovieCategory value) {
+    return value == null ? null : value.name();
+  }
+  
+  public static MovieCategory getMovieCategory(String value) {
+    if (value==null) {
+      return null;
+    }
+    for (MovieCategory type : MovieCategory.values()) {
+      if (type.name().equals(value)) {
+        return type;
+      }
+    }
+    return null;
+  }
+  
 
 }

@@ -1,14 +1,12 @@
 package it.euris.academy.six.data.dto;
 
-import java.time.Instant;
+
 import java.util.List;
-import org.springframework.jdbc.core.SqlReturnUpdateCount;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import Utils.UT;
 import it.euris.academy.six.data.archetype.Dto;
 import it.euris.academy.six.data.model.Cinema;
 import it.euris.academy.six.data.model.Hall;
-import it.euris.academy.six.data.model.Movie;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
